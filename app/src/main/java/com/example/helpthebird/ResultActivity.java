@@ -1,11 +1,9 @@
 package com.example.helpthebird;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Process;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -79,18 +77,13 @@ public class ResultActivity extends AppCompatActivity {
         builder.setCancelable(false);
 
         builder.setNegativeButton("Quit game", (dialogInterface, i) -> {
-            moveTaskToBack(true);
-            Process.killProcess(Process.myPid());
-            System.exit(0);
+            finishAffinity();
         });
 
         builder.setPositiveButton("Cancel", (dialogInterface, which) -> dialogInterface.cancel());
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
-        // Call the super method to ensure default behavior is preserved
-        super.onBackPressed();
     }
 
 

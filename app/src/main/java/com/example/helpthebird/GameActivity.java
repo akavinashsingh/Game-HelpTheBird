@@ -148,10 +148,13 @@ public class GameActivity extends AppCompatActivity {
         right = 3;
         textViewScore.setText(String.valueOf(score));
 
-        // Reset hearts visibility
-        right1.setImageResource(R.drawable.grey_heart);
-        right2.setImageResource(R.drawable.grey_heart);
-        right3.setImageResource(R.drawable.grey_heart);
+        // Reset hearts to full (red) and make visible
+        right1.setImageResource(R.drawable.heart);
+        right2.setImageResource(R.drawable.heart);
+        right3.setImageResource(R.drawable.heart);
+        right1.setVisibility(View.VISIBLE);
+        right2.setVisibility(View.VISIBLE);
+        right3.setVisibility(View.VISIBLE);
 
         // Make all elements visible
         bird.setVisibility(View.VISIBLE);

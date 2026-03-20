@@ -56,7 +56,15 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         // Initialize and start MediaPlayer
         mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.game_sound);
+        if (mediaPlayer == null) return;
         mediaPlayer.setLooping(true); // Loop the sound
+        if (isMuted) {
+            mediaPlayer.setVolume(0, 0);
+            volume.setImageResource(R.drawable.baseline_volume_off_24);
+        } else {
+            mediaPlayer.setVolume(1, 1);
+            volume.setImageResource(R.drawable.baseline_volume_up_24);
+        }
         mediaPlayer.start();
 
         // Handle volume control
